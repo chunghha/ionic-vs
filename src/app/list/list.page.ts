@@ -1,39 +1,52 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
+import { debounceTime } from 'rxjs/operators';
+import { TakeUntilDestroy, untilDestroyed } from 'ngx-take-until-destroy';
+
+import { CountryDataService } from '../providers/country-data.service';
+import { Country } from '../models/country';
+
+@TakeUntilDestroy()
 @Component({
   selector: 'app-list',
   templateUrl: 'list.page.html',
   styleUrls: ['list.page.scss']
 })
-export class ListPage implements OnInit {
-  private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+export class ListPage implements OnDestroy, OnInit {
+  countries: Country[] = [];
+  responseData: Country[] = [];
+  searchTerm = '';
+  searchControl: FormControl;
+  items: any;
+  searching = false;
+
+  constructor(private countryData: CountryDataService) {
+    this.searchControl = new FormControl();
   }
 
   ngOnInit() {
+    this.countryData.getAll()
+      .pipe(untilDestroyed(this))
+      .subscribe((countries: any) => {
+        this.responseData = countries;
+        this.countries = countries;
+      });
   }
-  // add back when alpha.4 is out
-  // navigate(item) {
-  //   this.router.navigate(['/list', JSON.stringify(item)]);
-  // }
+
+  ngOnDestroy() { }
+
+  filterCountries(ev) {
+
+    const searchTerm = ev.target.value;
+
+    if (searchTerm && searchTerm.trim() !== '') {
+      this.countries = this.responseData.filter((country: Country) => {
+        return (country.name.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1);
+      });
+    } else {
+      this.countries = this.responseData;
+    }
+  }
+
 }

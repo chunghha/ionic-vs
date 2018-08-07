@@ -1,27 +1,39 @@
-<ion-header>
+<ion-header color="primary">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>
-      List
-    </ion-title>
+    <ion-searchbar animated debounce="500" color="dark" 
+      (ionInput)="filterCountries($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
+  <ion-virtual-scroll [items]="countries" approxItemHeight="500px">
+    <ion-card *virtualItem="let country;">
+      <div>
+        <ion-img [src]="country.flag"></ion-img>
       </div>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+      <ion-card-header>
+        <ion-card-subtitle>{{ country.subregion }}</ion-card-subtitle>
+        <ion-card-title>{{ country.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col float-left>
+              <div text-start>{{ country.capital }}</div>
+            </ion-col>
+            <ion-col float-right>
+              <div text-end>
+                <ion-badge color="primary">
+                  {{ country.population.toLocaleString('en') }}
+                </ion-badge>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-virtual-scroll>
 </ion-content>
