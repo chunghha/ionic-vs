@@ -1,8 +1,8 @@
 // http://ionicframework.com/docs/theming/
+@import "~@ionic/angular/css/core.css";
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import "~@ionic/angular/css/core.css";
 
 @import "~@ionic/angular/css/padding.css";
 @import "~@ionic/angular/css/float-elements.css";
@@ -10,3 +10,35 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+:root {
+    --ion-color-primary: #3880ff;
+    --ion-color-secondary: #0cd1e8;
+    --ion-color-tertiary: #7044ff;
+    --ion-color-success: #10dc60;
+    --ion-color-warning: #ffce00;
+    --ion-color-danger: #f04141;
+    --ion-color-light: #f4f5f8;
+    --ion-color-medium: #989aa2;
+    --ion-color-dark: #222428;
+
+    --ion-color-favorite: #69BB7B;
+    --ion-color-twitter: #1da1f4;
+    --ion-color-google: #dc4a38;
+    --ion-color-vimeo: #23b6ea;
+    --ion-color-facebook: #3b5998;
+
+    --ion-color-angular: #ac282b;
+    --ion-color-communication: #8e8d93;
+    --ion-color-tooling: #fe4c52;
+    --ion-color-services: #fd8b2d;
+    --ion-color-design: #fed035;
+    --ion-color-workshop: #69bb7b;
+    --ion-color-food: #3bc7c4;
+    --ion-color-documentation: #b16be3;
+    --ion-color-navigation: #6600cc;
+}
+
+.md ion-toolbar {
+    --background: var(--ion-color-primary);
+    color: #fff;
+}
