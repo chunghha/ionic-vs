@@ -28,7 +28,7 @@
     "@ionic/ng-toolkit": "^1.0.8",
     "@ionic/schematics-angular": "^1.0.6",
     "core-js": "^2.5.3",
-    "ngx-take-until-destroy": "^4.1.2",
+    "ngx-take-until-destroy": "^5.0.0",
     "rxjs": "~6.3.2",
     "zone.js": "^0.8.26"
   },
@@ -43,7 +43,7 @@
     "@angular-devkit/schematics": "~0.9.0-beta.3",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~10.9.4",
+    "@types/node": "~10.10.1",
     "codelyzer": "~4.4.4",
     "jasmine-core": "~3.2.1",
     "jasmine-spec-reporter": "~4.2.1",

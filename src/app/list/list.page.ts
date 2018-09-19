@@ -2,12 +2,11 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { debounceTime } from 'rxjs/operators';
-import { TakeUntilDestroy, untilDestroyed } from 'ngx-take-until-destroy';
+import { untilDestroyed } from 'ngx-take-until-destroy';
 
 import { CountryDataService } from '../providers/country-data.service';
 import { Country } from '../models/country';
 
-@TakeUntilDestroy()
 @Component({
   selector: 'app-list',
   templateUrl: 'list.page.html',
