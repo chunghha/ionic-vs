@@ -3,37 +3,28 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-searchbar animated debounce="500" color="dark" 
-      (ionInput)="filterCountries($event)"></ion-searchbar>
+    <ion-searchbar animated debounce="500" color="dark" (ionInput)="filterCountries($event)"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-virtual-scroll [items]="countries" approxItemHeight="500px">
-    <ion-card *virtualItem="let country;">
-      <div>
-        <ion-img [src]="country.flag"></ion-img>
-      </div>
-      <ion-card-header>
-        <ion-card-subtitle>{{ country.subregion }}</ion-card-subtitle>
-        <ion-card-title>{{ country.name }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-grid>
-          <ion-row>
-            <ion-col float-left>
-              <div text-start>{{ country.capital }}</div>
-            </ion-col>
-            <ion-col float-right>
-              <div text-end>
-                <ion-badge color="primary">
-                  {{ country.population.toLocaleString('en') }}
-                </ion-badge>
-              </div>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-card-content>
-    </ion-card>
+  <ion-virtual-scroll [items]="countries" approxItemHeight="85px">
+    <ion-list *virtualItem="let country;">
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-img [src]="country.flag"></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          <p>{{ country.subregion }}</p>
+          <ion-text color="primary">
+            <h2>{{ country.name }}</h2>
+          </ion-text>
+          <h3>{{ country.capital }}</h3>
+        </ion-label>
+        <ion-badge color="light">
+          {{ country.population.toLocaleString('en') }}
+        </ion-badge>
+      </ion-item>
+    </ion-list>
   </ion-virtual-scroll>
 </ion-content>
