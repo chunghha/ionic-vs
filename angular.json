@@ -32,12 +32,9 @@
               }
             ],
             "styles": [
-              {
-                "input": "src/theme/variables.scss"
-              },
-              {
-                "input": "src/global.scss"
-              }
+              "node_modules/typeface-ibm-plex-sans/index.css",
+              "src/theme/variables.scss",
+              "src/global.scss"
             ],
             "scripts": []
           },

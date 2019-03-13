@@ -28,6 +28,7 @@
     "core-js": "^2.6.5",
     "ngx-take-until-destroy": "^5.4.0",
     "rxjs": "~6.4.0",
+    "typeface-ibm-plex-sans": "^0.0.61",
     "zone.js": "^0.8.29"
   },
   "devDependencies": {

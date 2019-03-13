@@ -1,1 +1,5 @@
-
+.item ion-thumbnail ion-img,
+.item ion-thumbnail img {
+    --border-radius: 6px;
+    width: auto !important;
+}
