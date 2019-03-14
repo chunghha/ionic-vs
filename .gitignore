@@ -29,8 +29,10 @@ platforms/
 plugins/
 plugins/android.json
 plugins/ios.json
+resources/
 $RECYCLE.BIN/
 
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+my-release-key.keystore
