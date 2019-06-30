@@ -20,6 +20,7 @@ npm-debug.log*
 .sass-cache/
 .tmp/
 .versions/
+android/build/
 coverage/
 www/
 node_modules/
