@@ -9,7 +9,7 @@
 
 <ion-content>
   <ion-virtual-scroll [items]="countries" approxItemHeight="85px">
-    <ion-list *virtualItem="let country;">
+    <ion-list *virtualItem="let country;" class="list">
       <ion-item>
         <ion-thumbnail slot="start">
           <ion-img [src]="country.flag"></ion-img>
